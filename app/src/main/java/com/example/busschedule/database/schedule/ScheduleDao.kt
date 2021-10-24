@@ -1,6 +1,7 @@
+package com.example.busschedule.database.schedule
+
 import androidx.room.Dao
 import androidx.room.Query
-import com.example.busschedule.database.schedule.Schedule
 
 @Dao
 interface ScheduleDao {
@@ -9,5 +10,5 @@ interface ScheduleDao {
     fun getAll(): List<Schedule>
 
     @Query("SELECT * FROM schedule WHERE stop_name = :stopName ORDER BY arrival_time ASC")
-    fun getByStopName(): List<Schedule>
+    fun getByStopName(stopName: String): List<Schedule>
 }
